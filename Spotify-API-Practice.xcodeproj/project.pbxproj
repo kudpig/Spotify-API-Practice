@@ -3,27 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8FC7158A268A66C8009E4A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC71589268A66C8009E4A20 /* AppDelegate.swift */; };
-		8FC7158C268A66C8009E4A20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC7158B268A66C8009E4A20 /* SceneDelegate.swift */; };
-		8FC7158E268A66C8009E4A20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC7158D268A66C8009E4A20 /* ViewController.swift */; };
-		8FC71591268A66C8009E4A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC7158F268A66C8009E4A20 /* Main.storyboard */; };
 		8FC71593268A66C9009E4A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC71592268A66C9009E4A20 /* Assets.xcassets */; };
 		8FC71596268A66C9009E4A20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC71594268A66C9009E4A20 /* LaunchScreen.storyboard */; };
+		8FC7159E268A679D009E4A20 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC7159D268A679D009E4A20 /* Login.storyboard */; };
+		8FC715A0268A67AE009E4A20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC7159F268A67AE009E4A20 /* LoginViewController.swift */; };
+		8FC715A5268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715A4268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift */; };
+		8FC715A8268A6BDE009E4A20 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8FC715A7268A6BDE009E4A20 /* Alamofire */; };
+		8FC715AA268A6C12009E4A20 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715A9268A6C12009E4A20 /* APICaller.swift */; };
+		8FC715AC268AA5EB009E4A20 /* SpotifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715AB268AA5EB009E4A20 /* SpotifyModel.swift */; };
+		8FC715AE268AAA28009E4A20 /* Extension-UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715AD268AAA28009E4A20 /* Extension-UserDefaults.swift */; };
+		8FC715B1268AAC51009E4A20 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715B0268AAC51009E4A20 /* HomeViewController.swift */; };
+		8FC715B3268AAC5C009E4A20 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC715B2268AAC5C009E4A20 /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8FC71586268A66C8009E4A20 /* Spotify-API-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-API-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC71589268A66C8009E4A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8FC7158B268A66C8009E4A20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8FC7158D268A66C8009E4A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8FC71590268A66C8009E4A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FC71592268A66C9009E4A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FC71595268A66C9009E4A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FC71597268A66C9009E4A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC7159D268A679D009E4A20 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		8FC7159F268A67AE009E4A20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8FC715A4268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessTokenModel.swift; sourceTree = "<group>"; };
+		8FC715A9268A6C12009E4A20 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		8FC715AB268AA5EB009E4A20 /* SpotifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModel.swift; sourceTree = "<group>"; };
+		8FC715AD268AAA28009E4A20 /* Extension-UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-UserDefaults.swift"; sourceTree = "<group>"; };
+		8FC715B0268AAC51009E4A20 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8FC715B2268AAC5C009E4A20 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC715A8268A6BDE009E4A20 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,14 +69,51 @@
 			isa = PBXGroup;
 			children = (
 				8FC71589268A66C8009E4A20 /* AppDelegate.swift */,
-				8FC7158B268A66C8009E4A20 /* SceneDelegate.swift */,
-				8FC7158D268A66C8009E4A20 /* ViewController.swift */,
-				8FC7158F268A66C8009E4A20 /* Main.storyboard */,
+				8FC715AD268AAA28009E4A20 /* Extension-UserDefaults.swift */,
+				8FC715A3268A6AF5009E4A20 /* Model */,
+				8FC715A1268A69EE009E4A20 /* ViewController */,
 				8FC71592268A66C9009E4A20 /* Assets.xcassets */,
 				8FC71594268A66C9009E4A20 /* LaunchScreen.storyboard */,
 				8FC71597268A66C9009E4A20 /* Info.plist */,
+				8FC715A9268A6C12009E4A20 /* APICaller.swift */,
 			);
 			path = "Spotify-API-Practice";
+			sourceTree = "<group>";
+		};
+		8FC715A1268A69EE009E4A20 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8FC715AF268AAC41009E4A20 /* Home */,
+				8FC715A2268A6A0D009E4A20 /* Login */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8FC715A2268A6A0D009E4A20 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8FC7159F268A67AE009E4A20 /* LoginViewController.swift */,
+				8FC7159D268A679D009E4A20 /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8FC715A3268A6AF5009E4A20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8FC715A4268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift */,
+				8FC715AB268AA5EB009E4A20 /* SpotifyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8FC715AF268AAC41009E4A20 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8FC715B0268AAC51009E4A20 /* HomeViewController.swift */,
+				8FC715B2268AAC5C009E4A20 /* Home.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +132,9 @@
 			dependencies = (
 			);
 			name = "Spotify-API-Practice";
+			packageProductDependencies = (
+				8FC715A7268A6BDE009E4A20 /* Alamofire */,
+			);
 			productName = "Spotify-API-Practice";
 			productReference = 8FC71586268A66C8009E4A20 /* Spotify-API-Practice.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +162,9 @@
 				Base,
 			);
 			mainGroup = 8FC7157D268A66C8009E4A20;
+			packageReferences = (
+				8FC715A6268A6BDE009E4A20 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 8FC71587268A66C8009E4A20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +181,8 @@
 			files = (
 				8FC71596268A66C9009E4A20 /* LaunchScreen.storyboard in Resources */,
 				8FC71593268A66C9009E4A20 /* Assets.xcassets in Resources */,
-				8FC71591268A66C8009E4A20 /* Main.storyboard in Resources */,
+				8FC7159E268A679D009E4A20 /* Login.storyboard in Resources */,
+				8FC715B3268AAC5C009E4A20 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +193,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FC7158E268A66C8009E4A20 /* ViewController.swift in Sources */,
+				8FC715A0268A67AE009E4A20 /* LoginViewController.swift in Sources */,
 				8FC7158A268A66C8009E4A20 /* AppDelegate.swift in Sources */,
-				8FC7158C268A66C8009E4A20 /* SceneDelegate.swift in Sources */,
+				8FC715AE268AAA28009E4A20 /* Extension-UserDefaults.swift in Sources */,
+				8FC715A5268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift in Sources */,
+				8FC715AC268AA5EB009E4A20 /* SpotifyModel.swift in Sources */,
+				8FC715B1268AAC51009E4A20 /* HomeViewController.swift in Sources */,
+				8FC715AA268A6C12009E4A20 /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8FC7158F268A66C8009E4A20 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8FC71590268A66C8009E4A20 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8FC71594268A66C9009E4A20 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -341,6 +393,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8FC715A6268A6BDE009E4A20 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8FC715A7268A6BDE009E4A20 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FC715A6268A6BDE009E4A20 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8FC7157E268A66C8009E4A20 /* Project object */;
 }
