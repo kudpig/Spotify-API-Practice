@@ -38,16 +38,34 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            guard let _accessToken = accessToken,
-                  let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as? HomeViewController
-            else {
-                print("VCエラー")
+            guard let _accessToken = accessToken else {
                 return
             }
             
-            UserDefaults.standard.spotifyAccessToken = _accessToken.token
-            print("ユーザーデフォルトに入っているアクセストークン：\(UserDefaults.standard.spotifyAccessToken)")
-            self.navigationController?.pushViewController(vc, animated: true)
+            // APICallの時、URLSessionで取得した時のみ。AFだと紫指摘でない
+            // swift UIViewController.init(coder:) must be used from main thread only
+            DispatchQueue.main.async {
+                guard let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as? HomeViewController else {
+                    return
+                }
+                UserDefaults.standard.spotifyAccessToken = _accessToken.token
+                print("ユーザーデフォルトに入っているアクセストークン：\(UserDefaults.standard.spotifyAccessToken)")
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            // AFでAPIリクエストするときはこちらでよい
+            //guard let _accessToken = accessToken,
+            //      let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as? HomeViewController
+            //else {
+            //    print("VCエラー")
+            //    return
+            //}
+            
+            //UserDefaults.standard.spotifyAccessToken = _accessToken.token
+            //print("ユーザーデフォルトに入っているアクセストークン：\(UserDefaults.standard.spotifyAccessToken)")
+            
+            //self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }
