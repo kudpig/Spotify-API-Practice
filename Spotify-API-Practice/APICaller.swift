@@ -75,7 +75,6 @@ final class API {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        //request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = compornents.query?.data(using: .utf8)
         
         let basicAuthCode = Contstants.clientID+":"+Contstants.clientSecret
