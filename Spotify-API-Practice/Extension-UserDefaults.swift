@@ -8,7 +8,9 @@
 import Foundation
 
 extension UserDefaults {
-    private var spotifyAccessTokenKey: String { "qiitaAccessTokenKey" }
+    
+    private var spotifyAccessTokenKey: String { "spotifyAccessTokenKey" }
+    
     var spotifyAccessToken: String {
         get {
             self.string(forKey: spotifyAccessTokenKey) ?? ""

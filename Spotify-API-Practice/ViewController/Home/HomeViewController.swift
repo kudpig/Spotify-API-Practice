@@ -54,6 +54,12 @@ class HomeViewController: UIViewController {
         fetchCurrentUserPlayingList()
     }
     
+    
+    @IBAction func tapLogoutButton(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "spotifyAccessTokenKey")
+        Router.shared.showReStart()
+    }
+    
     private func fetchUserProfile() {
         API.shared.getCurrentUserProfile { [weak self] result in
             

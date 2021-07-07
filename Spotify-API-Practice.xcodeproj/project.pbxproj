@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FB52EC42694517400E80FFC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB52EC32694517400E80FFC /* Router.swift */; };
 		8FC7158A268A66C8009E4A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC71589268A66C8009E4A20 /* AppDelegate.swift */; };
 		8FC71593268A66C9009E4A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC71592268A66C9009E4A20 /* Assets.xcassets */; };
 		8FC71596268A66C9009E4A20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC71594268A66C9009E4A20 /* LaunchScreen.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FB52EC32694517400E80FFC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8FC71586268A66C8009E4A20 /* Spotify-API-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-API-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC71589268A66C8009E4A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC71592268A66C9009E4A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC71589268A66C8009E4A20 /* AppDelegate.swift */,
+				8FB52EC32694517400E80FFC /* Router.swift */,
 				8FC715AD268AAA28009E4A20 /* Extension-UserDefaults.swift */,
 				8FC715A9268A6C12009E4A20 /* APICaller.swift */,
 				8FC715A3268A6AF5009E4A20 /* Model */,
@@ -256,6 +259,7 @@
 				8FC715AC268AA5EB009E4A20 /* SpotifyModel.swift in Sources */,
 				8FC715B1268AAC51009E4A20 /* HomeViewController.swift in Sources */,
 				8FC715AA268A6C12009E4A20 /* APICaller.swift in Sources */,
+				8FB52EC42694517400E80FFC /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

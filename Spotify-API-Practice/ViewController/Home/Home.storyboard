@@ -110,10 +110,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmz-vE-TGZ" userLabel="TrackArea">
-                                        <rect key="frame" x="0.0" y="260" width="414" height="558"/>
+                                        <rect key="frame" x="0.0" y="260" width="414" height="522"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NN6-Zd-1WM">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="558"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="522"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -124,6 +124,14 @@
                                             <constraint firstItem="NN6-Zd-1WM" firstAttribute="leading" secondItem="pmz-vE-TGZ" secondAttribute="leading" id="yRL-S8-H6D"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFI-WQ-WmZ">
+                                        <rect key="frame" x="0.0" y="782" width="414" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Spotifyとの連携解除"/>
+                                        <connections>
+                                            <action selector="tapLogoutButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FiZ-mM-U9C"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>

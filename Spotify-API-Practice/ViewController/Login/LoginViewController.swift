@@ -45,13 +45,14 @@ class LoginViewController: UIViewController {
             // APICallの時、URLSessionで取得した時のみ。AFだと紫指摘でない
             // swift UIViewController.init(coder:) must be used from main thread only
             DispatchQueue.main.async {
-                guard let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as? HomeViewController else {
-                    return
-                }
+                //guard let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as? HomeViewController else {
+                //    return
+                //}
                 UserDefaults.standard.spotifyAccessToken = _accessToken.token
                 print("ユーザーデフォルトに入っているアクセストークン：\(UserDefaults.standard.spotifyAccessToken)")
                 
-                self.navigationController?.pushViewController(vc, animated: true)
+                //self.navigationController?.pushViewController(vc, animated: true)
+                Router.shared.showReStart()
             }
             
             // AFでAPIリクエストするときはこちらでよい
