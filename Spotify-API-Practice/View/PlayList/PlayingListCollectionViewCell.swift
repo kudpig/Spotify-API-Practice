@@ -12,9 +12,9 @@ class PlayingListCollectionViewCell: UICollectionViewCell {
     
     static var identifier: String { String(describing: PlayingListCollectionViewCell.self) }
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,7 +46,6 @@ class PlayingListCollectionViewCell: UICollectionViewCell {
                 }
             })
         }
-        
     }
     
 }

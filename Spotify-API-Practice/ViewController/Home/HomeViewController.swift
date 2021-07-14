@@ -16,15 +16,15 @@ class HomeViewController: UIViewController {
     private var playlistTrackItems: [TrackItem] = []
     private var nowPlaylistID: String = ""
     
-    @IBOutlet weak var userImageView: UIImageView! {
+    @IBOutlet private weak var userImageView: UIImageView! {
         didSet {
             userImageView.layer.cornerRadius = 50
         }
     }
     
-    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet private weak var userNameLabel: UILabel!
     
-    @IBOutlet weak var PlayListCollectionView: UICollectionView! {
+    @IBOutlet private weak var PlayListCollectionView: UICollectionView! {
         didSet {
             PlayListCollectionView.register(UINib(nibName: PlayingListCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PlayingListCollectionViewCell.identifier)
             
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: TrackItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TrackItemTableViewCell.identifier)
             tableView.delegate = self
@@ -54,28 +54,32 @@ class HomeViewController: UIViewController {
         fetchCurrentUserPlayingList()
     }
     
+    
+    @IBAction private func tapLogoutButton(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "spotifyAccessTokenKey")
+        Router.shared.showReStart()
+    }
+    
     private func fetchUserProfile() {
         API.shared.getCurrentUserProfile { [weak self] result in
-            
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let model):
-                    self?.userItems.append(model)
-                    self?.userNameLabel.text = model.display_name + " のライブラリ"
-                    
-                    let images = model.images
-                    let imageUrl = images.first?.url
-                    if let url = URL(string: imageUrl ?? "") {
-                        self?.userImageView.af.setImage(withURL: url)
-                    }
-                    
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
+            switch result {
+            case .success(let model):
+                self?.userItems.append(model)
+                self?.userNameLabel.text = model.display_name + " のライブラリ"
+                
+                let images = model.images
+                let imageUrl = images.first?.url
+                if let url = URL(string: imageUrl ?? "") {
+                    self?.userImageView.af.setImage(withURL: url)
                 }
+                
+                break
+            case .failure(let error):
+                print(error.localizedDescription)
             }
+            
         }
-    } // ユーザープロフィール取得ここまで
+    }
     
     private func fetchCurrentUserPlayingList() {
         API.shared.getCurrentUserPlayingList { [weak self] result in
@@ -97,7 +101,7 @@ class HomeViewController: UIViewController {
                 self?.PlayListCollectionView.reloadData()
             }
         }
-    } // プレイリスト取得ここまで
+    }
     
     private func fetchTrackItems() {
         guard !self.nowPlaylistID.isEmpty else {
@@ -124,7 +128,7 @@ class HomeViewController: UIViewController {
             }
             
         }
-    } // TrackItemsの取得ここまで
+    }
     
 }
 
@@ -150,7 +154,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
 
 extension HomeViewController: UICollectionViewDelegate {
-    // cell.didSelect
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         playlistTrackItems.removeAll()

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import Alamofire
 
 enum APIError: Error {
@@ -27,35 +26,28 @@ final class API {
     }
     
     let base = "https://accounts.spotify.com/authorize"
-    // scopeとscopeの間は%20
-    let scopes = "user-read-private%20user-read-recently-played%20user-read-currently-playing%20user-read-playback-state%20playlist-read-private%20playlist-read-collaborative"
+    let scopes = "user-read-private%20playlist-read-private%20playlist-read-collaborative"
     let redirectURI = "kudpigspotifypractice://callback"
-    let stateStr = "34fFs29kd09"
-
-    let getTokenEndPoint = "https://accounts.spotify.com/api/token"
-    let grantType = "authorization_code"
-    
-    let getTokenHeaders: HTTPHeaders = [
-        "Authorization": "Basic aaaaabbbbbccccc"
-    ]
-    //"Authorization": "Basic \(Contstants.clientID):\(Contstants.clientSecret))"
+    let stateStr = "state"
     
     enum  URLParameterName: String {
         case clientID = "client_id"
         case clientSecret = "client_secret"
         case redirectURI = "redirect_uri"
-        case scope = "scope"
-        case state = "state"
-        case code = "code"
         case grantType = "grant_type"
     }
     
 
+    let getTokenEndPoint = "https://accounts.spotify.com/api/token"
+    let grantType = "authorization_code"
+    
+    
+    
     var oAuthURL: URL {
         return URL(string: "\(base)?response_type=code&client_id=\(Contstants.clientID)&scope=\(scopes)&redirect_uri=\(redirectURI)&state=\(stateStr)&show_dialog=TRUE")!
         // show_dialog=TRUE
-        // ユーザーがすでにアプリを承認している場合に、再度承認するように強制するかどうかを指定します
-        // trueの場合、ユーザーは自動的にはリダイレクトされず、再度アプリを承認しなければなりません(デフォルトはfalse)
+        // ユーザーがすでにアプリを承認している場合に、再度承認するように強制するかどうかを指定
+        // trueの場合、ユーザーは自動的にはリダイレクトされず、再度アプリを承認する必要がある(デフォルトはfalse)
     }
     
     func postAuthorizationCode(code: String, completion: ((SpotifyAccessTokenModel?, Error?) -> Void)? = nil) {
@@ -65,7 +57,41 @@ final class API {
             return
         }
         
+        let basicAuthCode = Contstants.clientID+":"+Contstants.clientSecret
+        let data = basicAuthCode.data(using: .utf8)
+        guard let base64AuthCode = data?.base64EncodedString() else {
+            print("base64エンコードエラー")
+            completion?(nil, APIError.postAuthorizationCode)
+            return
+        }
+        
+        let parameters = [
+            "grant_type": "authorization_code",
+            "code": code,
+            "redirect_uri": redirectURI
+        ]
+        
+        let getTokenHeaders: HTTPHeaders = [
+            "Authorization": "Basic \(base64AuthCode)"
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, headers: getTokenHeaders).responseJSON { (response) in
+        
+            do {
+                guard let _data = response.data else {
+                    completion?(nil, APIError.postAuthorizationCode)
+                    return
+                }
+                let accessToken = try JSONDecoder().decode(SpotifyAccessTokenModel.self, from: _data)
+                completion?(accessToken, nil)
+            } catch let error {
+                completion?(nil, error)
+            }
+        
+        }
+        
         // デフォルトのURLセッションでボディ送る場合
+        /*
         var compornents = URLComponents()
         compornents.queryItems = [
             URLQueryItem(name: URLParameterName.grantType.rawValue, value: grantType),
@@ -76,14 +102,6 @@ final class API {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = compornents.query?.data(using: .utf8)
-        
-        let basicAuthCode = Contstants.clientID+":"+Contstants.clientSecret
-        let data = basicAuthCode.data(using: .utf8)
-        guard let base64AuthCode = data?.base64EncodedString() else {
-            print("base64エンコードエラー")
-            completion?(nil, APIError.postAuthorizationCode)
-            return
-        }
         
         request.setValue("Basic \(base64AuthCode)", forHTTPHeaderField: "Authorization")
         
@@ -103,35 +121,8 @@ final class API {
             }
         }
         task.resume()
+        */
         
-        // AFでリクエストした場合のコード
-        //let parameters = [
-        //    "grant_type": "authorization_code",
-        //    "code": code,
-        //    "redirect_uri": redirectURI
-        //]
-        //
-        //AF.request(url, method: .post, parameters: parameters, headers: getTokenHeaders).responseJSON { (response) in
-        //
-        //    print("postのレスポンス:\(response)")
-        //    do {
-        //        guard let _data = response.data else {
-        //            completion?(nil, APIError.postAuthorizationCode)
-        //            return
-        //        }
-        //        let accessToken = try JSONDecoder().decode(SpotifyAccessTokenModel.self, from: _data)
-        //        completion?(accessToken, nil)
-        //    } catch let error {
-        //        completion?(nil, error)
-        //    }
-        //
-        //}
-        
-    }
-    
-    enum HTTPMethod: String {
-        case GET
-        case POST
     }
     
     func getCurrentUserProfile(completion: @escaping (Result<UserProfile, Error>) -> Void) {
@@ -140,30 +131,35 @@ final class API {
             return
         }
         
-        createRequest(with: URL(string: Contstants.baseAPIURL + "/me"), type: .GET) { baseRequest in
-            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
-                guard let data = data, error == nil else {
-                    completion(.failure(APIError.failedToGetData))
+        guard let url = URL(string: Contstants.baseAPIURL + "/me") else {
+            completion(.failure(APIError.failedToGetData))
+            return
+        }
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(UserDefaults.standard.spotifyAccessToken)"
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseJSON { (response) in
+            do {
+                guard let _data = response.data else {
                     return
                 }
-                
-                print(data)
-                
-                do {
-                    //let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    let result = try JSONDecoder().decode(UserProfile.self, from: data)
-                    print(result)
-                    completion(.success(result))
-                }
-                catch {
-                    print(error.localizedDescription)
-                    completion(.failure(error))
-                }
+                let result = try JSONDecoder().decode(UserProfile.self, from: _data)
+                print(result)
+                completion(.success(result))
+            } catch let error {
+                print(error.localizedDescription)
+                completion(.failure(error))
             }
-            task.resume()
         }
+        
     }
     
+    enum HTTPMethod: String {
+        case GET
+        case POST
+    }
+    // 学習のためデフォルトのURLセッションでリクエスト送っている
     func getCurrentUserPlayingList(completion: @escaping (Result<CurrentUserPlayingList, Error>) -> Void) {
         guard UserDefaults.standard.spotifyAccessToken != "" else {
             return
@@ -178,7 +174,6 @@ final class API {
                 }
                 
                 do {
-                    //let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                     let result = try JSONDecoder().decode(CurrentUserPlayingList.self, from: data)
                     print("taskのresult:\(result)")
                     completion(.success(result))
@@ -222,7 +217,6 @@ final class API {
         }
         
     }
-    
     
     private func createRequest(with url: URL?, type: HTTPMethod, completion: @escaping (URLRequest) -> Void ) {
         
