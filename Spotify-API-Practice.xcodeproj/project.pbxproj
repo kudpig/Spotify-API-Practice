@@ -16,7 +16,6 @@
 		8FC715A5268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715A4268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift */; };
 		8FC715A8268A6BDE009E4A20 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8FC715A7268A6BDE009E4A20 /* Alamofire */; };
 		8FC715AA268A6C12009E4A20 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715A9268A6C12009E4A20 /* APICaller.swift */; };
-		8FC715AC268AA5EB009E4A20 /* SpotifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715AB268AA5EB009E4A20 /* SpotifyModel.swift */; };
 		8FC715AE268AAA28009E4A20 /* Extension-UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715AD268AAA28009E4A20 /* Extension-UserDefaults.swift */; };
 		8FC715B1268AAC51009E4A20 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC715B0268AAC51009E4A20 /* HomeViewController.swift */; };
 		8FC715B3268AAC5C009E4A20 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC715B2268AAC5C009E4A20 /* Home.storyboard */; };
@@ -41,7 +40,6 @@
 		8FC7159F268A67AE009E4A20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8FC715A4268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessTokenModel.swift; sourceTree = "<group>"; };
 		8FC715A9268A6C12009E4A20 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
-		8FC715AB268AA5EB009E4A20 /* SpotifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModel.swift; sourceTree = "<group>"; };
 		8FC715AD268AAA28009E4A20 /* Extension-UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-UserDefaults.swift"; sourceTree = "<group>"; };
 		8FC715B0268AAC51009E4A20 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8FC715B2268AAC5C009E4A20 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				8FC715A4268A6B1F009E4A20 /* SpotifyAccessTokenModel.swift */,
-				8FC715AB268AA5EB009E4A20 /* SpotifyModel.swift */,
 				8FC715B4268D628B009E4A20 /* SpotifyUserProfile.swift */,
 				8FC715B9268EF6B4009E4A20 /* SpotifyCurrentUserPlayingList.swift */,
 				8FC715C026900CE8009E4A20 /* SpotifyPlaylistTrackItem.swift */,
@@ -256,7 +253,6 @@
 				8FC715C6269018BF009E4A20 /* TrackItemTableViewCell.swift in Sources */,
 				8FC715BE268FEC1B009E4A20 /* PlayingListCollectionViewCell.swift in Sources */,
 				8FC715BA268EF6B4009E4A20 /* SpotifyCurrentUserPlayingList.swift in Sources */,
-				8FC715AC268AA5EB009E4A20 /* SpotifyModel.swift in Sources */,
 				8FC715B1268AAC51009E4A20 /* HomeViewController.swift in Sources */,
 				8FC715AA268A6C12009E4A20 /* APICaller.swift in Sources */,
 				8FB52EC42694517400E80FFC /* Router.swift in Sources */,

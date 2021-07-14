@@ -21,6 +21,5 @@ struct SpotifyAccessTokenModel: Codable {
         case tokenType = "token_type"
         case token = "access_token"
         case expiresIn = "expires_in"
-        
     }
 }

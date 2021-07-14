@@ -12,11 +12,11 @@ class TrackItemTableViewCell: UITableViewCell {
     
     static var identifier: String { String(describing: TrackItemTableViewCell.self) }
 
-    @IBOutlet weak var trackImageView: UIImageView!
+    @IBOutlet private weak var trackImageView: UIImageView!
     
-    @IBOutlet weak var trackTitleLabel: UILabel!
+    @IBOutlet private weak var trackTitleLabel: UILabel!
     
-    @IBOutlet weak var trackArtistNameLabel: UILabel!
+    @IBOutlet private weak var trackArtistNameLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -46,7 +46,6 @@ class TrackItemTableViewCell: UITableViewCell {
                 }
             })
         }
-    
     }
     
 }
