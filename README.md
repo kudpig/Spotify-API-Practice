@@ -109,7 +109,7 @@ final class API {
     
     let base = "https://accounts.spotify.com/authorize"
     let scopes = "user-read-private%20playlist-read-private%20playlist-read-collaborative"
-    let redirectURI = "kudpigspotifypractice://callback"
+    let redirectURI = "yoursettting-redirectURI://callback"
     let stateStr = "state"
     
     enum  URLParameterName: String {
